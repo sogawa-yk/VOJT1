@@ -1,7 +1,7 @@
 module "compute1" {
     source = "../modules/compute"
     compartment_ocid = var.compartment_ocid
-    oci_ad_name = oci_identity_availability_domains[0].name
+    oci_ad_name = data.oci_identity_availability_domains.ads.availability_domains[0].name
     shape = var.shape
     source_id = var.source_id
     source_type = var.source_type
@@ -12,7 +12,7 @@ module "compute1" {
 module "compute2" {
     source = "../modules/compute"
     compartment_ocid = var.compartment_ocid
-    oci_ad_name = oci_identity_availability_domains[0].name
+    oci_ad_name = data.oci_identity_availability_domains.ads.availability_domains[0].name
     shape = var.shape
     source_id = var.source_id
     source_type = var.source_type
