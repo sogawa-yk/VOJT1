@@ -2,12 +2,12 @@ variable "region" {
     type = string
     default = "ca-toronto-1"
 }
-variable "user_ocid" {}
-variable "tenancy_ocid" {}
+# variable "user_ocid" {}
+# variable "tenancy_ocid" {}
 variable "compartment_ocid" {}
 variable "vcn_name" {
     type = string
-    default = "sample_vcn"
+    default = "sample"
 }
 variable "vcn_dns_label" {
     type = string
