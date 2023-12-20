@@ -11,7 +11,7 @@ variable "vcn_name" {
 }
 variable "vcn_dns_label" {
     type = string
-    default = "sample_dns_label"
+    default = "sample"
 }
 
 ########
