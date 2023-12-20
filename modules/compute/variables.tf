@@ -1,3 +1,4 @@
+# ここに書かれているものがcomputeのモジュールの引数になる
 variable compartment_ocid {}
 variable shape {}
 variable source_id {}
