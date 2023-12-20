@@ -1,4 +1,4 @@
-variable compartment_id {}
+variable compartment_ocid {}
 variable shape {}
 variable source_id {}
 variable source_type {}

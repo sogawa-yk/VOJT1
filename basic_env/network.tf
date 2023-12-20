@@ -2,7 +2,7 @@ module "vcn" {
     source  = "oracle-terraform-modules/vcn/oci"
     version = "3.6.0"
     # insert the 1 required variable here
-    compartment_id = var.compartment_id
+    compartment_id = var.compartment_ocid
 
     vcn_name = var.vcn_name
     vcn_dns_label = var.vcn_dns_label
@@ -16,7 +16,7 @@ module "vcn" {
 resource "oci_core_subnet" "vcn-public-subnet"{
 
     # Required
-    compartment_id = var.compartment_id
+    compartment_id = var.compartment_ocid
     vcn_id = module.vcn.vcn_id
     cidr_block = "10.0.0.0/24"
 
@@ -29,7 +29,7 @@ resource "oci_core_subnet" "vcn-public-subnet"{
 resource "oci_core_subnet" "vcn-private-subnet"{
 
     # Required
-    compartment_id = var.compartment_id
+    compartment_id = var.compartment_ocid
     vcn_id = module.vcn.vcn_id
     cidr_block = "10.0.1.0/24"
 

@@ -1,7 +1,7 @@
 resource "oci_core_instance" "ubuntu_instance" {
     # Required
     availability_domain = data.oci_identity_availability_domains.ads.availability_domains[0].name
-    compartment_id = var.compartment_id
+    compartment_id = var.compartment_ocid
     shape = var.shape
     source_details {
         source_id = var.source_id
