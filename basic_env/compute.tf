@@ -1,4 +1,4 @@
-module "ubuntu_instance" {
+module "compute1" {
     source = "../modules/compute"
     compartment_id = var.compartment_id
     shape = var.shape
@@ -8,7 +8,7 @@ module "ubuntu_instance" {
     subnet_id = oci_core_subnet.vcn-public-subnet.id
 }
 
-module "ubuntu_instance" {
+module "compute2" {
     source = "../modules/compute"
     compartment_id = var.compartment_id
     shape = var.shape
