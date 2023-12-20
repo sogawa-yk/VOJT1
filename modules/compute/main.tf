@@ -14,8 +14,8 @@ resource "oci_core_instance" "ubuntu_instance" {
         assign_public_ip = true
         subnet_id = var.subnet_id
     }
-    metadata = {
-        ssh_authorized_keys = file("/home/yuki_sogaw/.ssh/id_rsa.pub")
-    } 
+    # metadata = {
+    #     ssh_authorized_keys = file("/home/yuki_sogaw/.ssh/id_rsa.pub")
+    # } 
     preserve_boot_volume = false
 }
