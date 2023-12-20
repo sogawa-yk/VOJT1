@@ -3,7 +3,7 @@ variable "region" {
     default = "ca-toronto-1"
 }
 # variable "user_ocid" {}
-# variable "tenancy_ocid" {}
+variable "tenancy_ocid" {}
 variable "compartment_ocid" {}
 variable "vcn_name" {
     type = string
