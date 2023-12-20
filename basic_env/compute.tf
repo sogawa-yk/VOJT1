@@ -1,6 +1,6 @@
 module "compute1" {
     source = "../modules/compute"
-    compartment_id = var.compartment_id
+    compartment_id = var.compartment_ocid
     shape = var.shape
     source_id = var.source_id
     source_type = var.source_type
@@ -10,7 +10,7 @@ module "compute1" {
 
 module "compute2" {
     source = "../modules/compute"
-    compartment_id = var.compartment_id
+    compartment_id = var.compartment_ocid
     shape = var.shape
     source_id = var.source_id
     source_type = var.source_type
