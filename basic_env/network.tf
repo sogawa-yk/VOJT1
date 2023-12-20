@@ -6,7 +6,7 @@ module "vcn" {
 
     vcn_name = var.vcn_name
     vcn_dns_label = var.vcn_dns_label
-    vcn_cidrs = [var.vcn_cidr] # This value is default
+    vcn_cidrs = ["10.0.0.0/16"] # This value is default
 
     create_internet_gateway = true
     create_nat_gateway = true
