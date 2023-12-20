@@ -13,24 +13,22 @@ module "vcn" {
     create_service_gateway = true
 }
 
-module "compute1" {
-    source = "./modules/compute"
+module "ubuntu_instance" {
+    source = "../modules/compute"
     compartment_id = var.compartment_id
     shape = var.shape
     source_id = var.source_id
     source_type = var.source_type
     display_name = var.display_name
     subnet_id = var.subnet_id
-
 }
 
-module "compute2" {
-    source = "./modules/compute"
+module "ubuntu_instance" {
+    source = "../modules/compute"
     compartment_id = var.compartment_id
     shape = var.shape
     source_id = var.source_id
     source_type = var.source_type
     display_name = var.display_name
     subnet_id = var.subnet_id
-    
 }
