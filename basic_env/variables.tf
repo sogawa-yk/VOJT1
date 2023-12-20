@@ -40,3 +40,8 @@ variable "display_name_compute2" {
     type = string
     default = "compute2"
 }
+variable "oci_ad_name" {
+    description = "Name of availability domains"
+    type = list(string)
+    default = oci_identity_availability_domains[0].name
+}
