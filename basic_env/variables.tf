@@ -23,7 +23,7 @@ variable "shape" {
 variable "source_id" {
     description = "Source id of OS image"
     type = string
-    default = "ocid1.image.oc1.ap-seoul-1.aaaaaaaazaztuefbkyydoflkd2eqaxtqgmqfjcrkkjtecdkrkhscxqevykta"
+    default = "ocid1.image.oc1.ca-toronto-1.aaaaaaaasxeukiy4xr43xmxm2iymurikjbow7jeiil66eu66mxbqhy3rgp5a"
 }
 variable "source_type" {
     description = "source type"
