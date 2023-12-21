@@ -7,7 +7,7 @@ module "compute1" {
     source_type = var.source_type
     display_name = var.display_name_compute1
     subnet_id = oci_core_subnet.vcn-public-subnet.id
-    ssh_authorized_keys = data.oci_vault_secret.ssh_public_key.content
+    ssh_authorized_keys = data.oci_secrets_secretbundle.ssh_public_key.secret_bundle_content.content.0.content
 }
 
 module "compute2" {
@@ -19,5 +19,5 @@ module "compute2" {
     source_type = var.source_type
     display_name = var.display_name_compute2
     subnet_id = oci_core_subnet.vcn-public-subnet.id
-    ssh_authorized_keys = data.oci_vault_secret.ssh_public_key.content
+    ssh_authorized_keys = data.oci_secrets_secretbundle.ssh_public_key.secret_bundle_content.content.0.content
 }
