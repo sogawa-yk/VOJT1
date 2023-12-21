@@ -5,6 +5,7 @@ variable "region" {
 variable "user_ocid" {}
 variable "tenancy_ocid" {}
 variable "compartment_ocid" {}
+variable "secret_id" {}
 variable "vcn_name" {
     type = string
     default = "sample"
