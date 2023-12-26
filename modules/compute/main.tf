@@ -15,7 +15,7 @@ resource "oci_core_instance" "ubuntu_instance" {
     subnet_id        = var.subnet_id
   }
   metadata = {
-    ssh_authorized_keys = ssh_authorized_keys
+    ssh_authorized_keys = var.ssh_authorized_keys
   }
   preserve_boot_volume = false
 }
