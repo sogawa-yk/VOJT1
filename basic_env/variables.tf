@@ -1,7 +1,7 @@
 variable "region" {
-  default = "ca-toronto-1"
+  default = "yyz"
 }
-variable "user_ocid" {}
+variable "current_user_ocid" {}
 variable "tenancy_ocid" {}
 variable "compartment_ocid" {}
 variable "secret_id" {}
