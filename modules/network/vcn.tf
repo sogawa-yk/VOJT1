@@ -23,14 +23,13 @@ resource "oci_core_route_table" "route_table" {
 
   #Optional
   display_name = var.route_table_display_name
-  #   route_rules {
-  #     #Required
-  #     network_entity_id = oci_core_internet_gateway.internet_gateway.id
+  route_rules {
+    #Required
+    network_entity_id = oci_core_internet_gateway.internet_gateway.id
 
-  #     #Optional
-  #     # cidr_block = var.route_table_route_rules_cidr_block
-  #     # description = var.route_table_route_rules_description
-  #     # destination = var.route_table_route_rules_destination
-  #     # destination_type = var.route_table_route_rules_destination_type
-  #   }
+    #Optional
+    description      = "sample"     #var.route_table_route_rules_description
+    destination      = "0.0.0.0/0"  #var.route_table_route_rules_destination
+    destination_type = "CIDR_BLOCK" #var.route_table_route_rules_destination_type
+  }
 }
