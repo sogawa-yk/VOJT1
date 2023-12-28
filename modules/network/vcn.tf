@@ -13,8 +13,7 @@ resource "oci_core_internet_gateway" "internet_gateway" {
   vcn_id         = oci_core_vcn.vcn.id
 
   #Optional
-  display_name   = var.internet_gateway_display_name
-  route_table_id = oci_core_route_table.route_table.id
+  display_name = var.internet_gateway_display_name
 }
 
 resource "oci_core_route_table" "route_table" {
