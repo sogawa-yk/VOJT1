@@ -6,7 +6,7 @@ module "compute1" {
   source_id           = var.source_id
   source_type         = var.source_type
   display_name        = var.display_name_compute1
-  subnet_id           = module.network.subnet_id
+  subnet_id           = module.sample_network.subnet_id
   ssh_authorized_keys = base64decode(data.oci_secrets_secretbundle.ssh_public_key.secret_bundle_content.0.content)
 }
 
@@ -18,6 +18,6 @@ module "compute2" {
   source_id           = var.source_id
   source_type         = var.source_type
   display_name        = var.display_name_compute2
-  subnet_id           = module.network.subnet_id
+  subnet_id           = module.sample_network.subnet_id
   ssh_authorized_keys = base64decode(data.oci_secrets_secretbundle.ssh_public_key.secret_bundle_content.0.content)
 }
