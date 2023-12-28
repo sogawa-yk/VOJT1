@@ -7,10 +7,10 @@ resource "oci_core_vcn" "vcn" {
   freeform_tags  = { "Department" = "Finance" }
 }
 
-resource "oci_core_internet_gateway" "test_internet_gateway" {
+resource "oci_core_internet_gateway" "internet_gateway" {
   #Required
   compartment_id = var.compartment_ocid
-  vcn_id         = oci_core_vcn.test_vcn.id
+  vcn_id         = oci_core_vcn.vcn.id
 
   #Optional
   display_name   = var.internet_gateway_display_name
@@ -20,13 +20,13 @@ resource "oci_core_internet_gateway" "test_internet_gateway" {
 resource "oci_core_route_table" "route_table" {
   #Required
   compartment_id = var.compartment_ocid
-  vcn_id         = oci_core_vcn.test_vcn.id
+  vcn_id         = oci_core_vcn.vcn.id
 
   #Optional
   display_name = var.route_table_display_name
   route_rules {
     #Required
-    network_entity_id = oci_core_internet_gateway.test_internet_gateway.id
+    network_entity_id = oci_core_internet_gateway.internet_gateway.id
 
     #Optional
     # cidr_block = var.route_table_route_rules_cidr_block
