@@ -14,7 +14,7 @@ resource "oci_core_internet_gateway" "internet_gateway" {
 
   #Optional
   display_name   = var.internet_gateway_display_name
-  route_table_id = oci_core_route_table.test_route_table.id
+  route_table_id = oci_core_route_table.route_table.id
 }
 
 resource "oci_core_route_table" "route_table" {
