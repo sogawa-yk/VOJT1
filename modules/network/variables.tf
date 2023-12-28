@@ -1,0 +1,9 @@
+variable "compartment_ocid" {}
+variable "security_list_display_name" {}
+variable "subnet_cidr_block" {}
+variable "subnet_display_name" {}
+variable "vcn_cidr_block" {}
+variable "vcn_dns_label" {}
+variable "vcn_display_name" {}
+variable "internet_gateway_display_name" {}
+variable "route_table_display_name" {}
