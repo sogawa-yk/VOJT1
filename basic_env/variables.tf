@@ -1,5 +1,5 @@
 variable "region" {
-  default = "yyz"
+  default = "ca-toronto-1"
 }
 variable "current_user_ocid" {}
 variable "tenancy_ocid" {}
