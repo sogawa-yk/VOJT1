@@ -10,5 +10,5 @@ module "sample_network" {
   internet_gateway_display_name = "sample_igw"           #var.internet_gateway_display_name
   route_table_display_name      = "sample_route_table"   #var.route_table_display_name
   service_gateway_display_name  = var.service_gateway_display_name
-  service_id                    = var.adb_service_id
+  service_id                    = data.oci_core_services.services.services.0.id
 }
