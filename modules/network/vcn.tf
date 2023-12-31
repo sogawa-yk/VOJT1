@@ -16,6 +16,20 @@ resource "oci_core_internet_gateway" "internet_gateway" {
   display_name = var.internet_gateway_display_name
 }
 
+resource "oci_core_service_gateway" "service_gateway" {
+  #Required
+  compartment_id = var.compartment_ocid
+  services {
+    #Required
+    service_id = data.oci_core_services.test_services.services.0.id
+  }
+  vcn_id = oci_core_vcn.vcn.id
+
+  #Optional
+  display_name   = var.service_gateway_display_name
+  route_table_id = oci_core_route_table.route_table.id
+}
+
 resource "oci_core_route_table" "route_table" {
   #Required
   compartment_id = var.compartment_ocid
