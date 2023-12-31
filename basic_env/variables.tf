@@ -45,3 +45,6 @@ variable "service_gateway_display_name" {
   type        = string
   default     = "SG1"
 }
+variable "adb_service_id" {
+  default = data.oci_core_services.services.services.0.id
+}

@@ -21,7 +21,7 @@ resource "oci_core_service_gateway" "service_gateway" {
   compartment_id = var.compartment_ocid
   services {
     #Required
-    service_id = data.oci_core_services.test_services.services.0.id
+    service_id = var.service_id
   }
   vcn_id = oci_core_vcn.vcn.id
 
