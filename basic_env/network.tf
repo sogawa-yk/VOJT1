@@ -9,4 +9,5 @@ module "sample_network" {
   vcn_display_name              = "sample_vcn"           #var.vcn_display_name
   internet_gateway_display_name = "sample_igw"           #var.internet_gateway_display_name
   route_table_display_name      = "sample_route_table"   #var.route_table_display_name
+  service_gateway_display_name  = var.service_gateway_display_name
 }
