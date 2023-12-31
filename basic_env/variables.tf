@@ -40,3 +40,8 @@ variable "display_name_compute2" {
   type        = string
   default     = "compute2"
 }
+variable "service_gateway_display_name" {
+  description = "Display name of Service gateway"
+  type        = string
+  default     = "SG1"
+}
