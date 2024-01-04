@@ -1,8 +1,8 @@
 module "instance_configuration" {
   source                              = "../live"
   compartment_id                      = var.compartment_ocid
-  instance_configuration_display_name = "test"
-  availability_domain                 = data.oci_identity_availability_domains.ads[0].name
+  instance_configuration_display_name = var.instance_configuration_display_name
+  availability_domain                 = data.oci_identity_availability_domains.ads.availability_domains[0].name
   metadata = { user_data : base64encode(<<-EOF
                 #!/bin/bash
                 echo "Hello, World" > index.html
