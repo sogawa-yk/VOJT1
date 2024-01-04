@@ -10,7 +10,7 @@ module "autoscale" {
                 EOF
   ) }
   shape                                = "VM.Standard2.1"
-  subnet_id                            = module.vcn.subnet_id[0]
+  subnet_id                            = module.sample_network.subnet_id[0]
   instance_pool_display_name           = "test"
   instance_pool_display_name_formatter = "testtest"
   instance_pool_size                   = 2
@@ -20,9 +20,20 @@ data "oci_identity_availability_domains" "ads" {
   compartment_id = var.compartment_ocid
 }
 
-module "vcn" {
-  source  = "oracle-terraform-modules/vcn/oci"
-  version = "3.6.0"
-  # insert the 1 required variable here
-  compartment_id = var.compartment_ocid
+data "oci_core_services" "services" {
+}
+
+module "sample_network" {
+  source                        = "../../../network"
+  compartment_ocid              = var.compartment_ocid
+  security_list_display_name    = "sample_security_list" #var.security_list_display_name
+  subnet_cidr_block             = "10.0.0.0/16"          #var.subnet_cidr_block
+  subnet_display_name           = "sample_subnet"        #var.subent_display_name
+  vcn_cidr_block                = "10.0.0.0/16"          #var.vcn_cidr_block
+  vcn_dns_label                 = "sample"               #var.vcn_dns_label
+  vcn_display_name              = "sample_vcn"           #var.vcn_display_name
+  internet_gateway_display_name = "sample_igw"           #var.internet_gateway_display_name
+  route_table_display_name      = "sample_route_table"   #var.route_table_display_name
+  service_gateway_display_name  = "sample_SG"
+  service_id                    = data.oci_core_services.services.services.0.id
 }
