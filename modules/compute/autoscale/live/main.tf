@@ -19,12 +19,12 @@ resource "oci_core_instance_configuration" "test_instance_configuration" {
       #Optional
       availability_domain = var.availability_domain
       compartment_id      = var.compartment_id
-      # create_vnic_details {
+      create_vnic_details {
 
-      #   #Optional
-      #   assign_public_ip = true
-      #   subnet_id        = var.subnet_id
-      # }
+        #Optional
+        assign_public_ip = true
+        subnet_id        = var.subnet_id
+      }
       # display_name = var.display_name
       # fault_domain = var.fault_domain # 指定しない場合はシステムが自動で設定する
       launch_mode = "NATIVE"
