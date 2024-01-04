@@ -1,39 +1,16 @@
-resource "oci_core_instance_configuration" "test_instance_configuration" {
-  #Required
-  compartment_id = var.compartment_ocid
-
-  #Optional
-  display_name  = var.instance_configuration_display_name
-  freeform_tags = { "Department" = "Finance" }
-  instance_details {
-    #Required
-    instance_type = "compute"
-
-    #Optional
-    launch_details {
-
-      #Optional
-      availability_domain = data.oci_identity_availability_domains.ads.availability_domains[0].name
-      compartment_id      = var.compartment_ocid
-      create_vnic_details {
-
-        #Optional
-        assign_public_ip = true
-        subnet_id        = module.vcn.subnet_id
-      }
-      # display_name = var.display_name
-      # fault_domain = var.fault_domain # 指定しない場合はシステムが自動で設定する
-      launch_mode = "NATIVE"
-      metadata = { "user_data" : base64encode(<<-EOF
+module "instance_configuration" {
+  source                              = "../live"
+  compartment_id                      = var.compartment_ocid
+  instance_configuration_display_name = "test"
+  availability_domain                 = data.oci_identity_availability_domains.ads[0].name
+  metadata = { user_data : base64encode(<<-EOF
                 #!/bin/bash
                 echo "Hello, World" > index.html
                 nohup busybox httpd -f -p 80 &
                 EOF
-      ) }
-      shape = var.shape
-    }
-
-  }
+  ) }
+  shape     = "VM.Standard2.1"
+  subnet_id = module.vcn.subnet_id
 }
 
 data "oci_identity_availability_domains" "ads" {
