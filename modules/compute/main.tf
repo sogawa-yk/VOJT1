@@ -16,11 +16,12 @@ resource "oci_core_instance" "ubuntu_instance" {
   }
   metadata = {
     ssh_authorized_keys = var.ssh_authorized_keys
-    user_data = <<-EOF
+    user_data = base64encode(<<-EOF
                 #!/bin/bash
                 echo "Hello, World" > index.html
                 nohup busybox httpd -f -p ${var.server_port} &
                 EOF
+    )
   }
   preserve_boot_volume = false
 }
