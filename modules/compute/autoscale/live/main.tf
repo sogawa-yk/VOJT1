@@ -30,3 +30,29 @@ resource "oci_core_instance_configuration" "test_instance_configuration" {
 
   }
 }
+
+
+resource "oci_core_instance_pool" "test_instance_pool" {
+  #Required
+  compartment_id            = var.compartment_id
+  instance_configuration_id = oci_core_instance_configuration.test_instance_configuration.id
+  placement_configurations {
+    #Required
+    availability_domain = var.availability_domain
+
+    #Optional
+    primary_subnet_id = var.subnet_id
+  }
+  size = var.instance_pool_size
+
+  #Optional
+  display_name                    = var.instance_pool_display_name
+  instance_display_name_formatter = var.instance_pool_display_name_formatter
+  # load_balancers {
+  #   #Required
+  #   backend_set_name = oci_load_balancer_backend_set.test_backend_set.name
+  #   load_balancer_id = oci_load_balancer_load_balancer.test_load_balancer.id
+  #   port             = var.instance_pool_load_balancers_port
+  #   vnic_selection   = var.instance_pool_load_balancers_vnic_selection
+  # }
+}

@@ -1,4 +1,4 @@
-module "instance_configuration" {
+module "autoscale" {
   source                              = "../live"
   compartment_id                      = var.compartment_ocid
   instance_configuration_display_name = var.instance_configuration_display_name
@@ -9,8 +9,11 @@ module "instance_configuration" {
                 nohup busybox httpd -f -p 80 &
                 EOF
   ) }
-  shape     = "VM.Standard2.1"
-  subnet_id = module.vcn.subnet_id
+  shape                                = "VM.Standard2.1"
+  subnet_id                            = module.vcn.subnet_id
+  instance_pool_display_name           = "test"
+  instance_pool_display_name_formatter = "testtest"
+  instance_pool_size                   = 2
 }
 
 data "oci_identity_availability_domains" "ads" {
