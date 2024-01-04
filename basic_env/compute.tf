@@ -1,5 +1,5 @@
 module "compute1" {
-  source              = "../modules/compute"
+  source              = "../modules/compute/compute"
   compartment_ocid    = var.compartment_ocid
   oci_ad_name         = data.oci_identity_availability_domains.ads.availability_domains[0].name
   shape               = var.shape
