@@ -43,9 +43,6 @@ resource "oci_core_instance_pool" "test_instance_pool" {
   placement_configurations {
     #Required
     availability_domain = var.availability_domain
-
-    #Optional
-    primary_subnet_id = var.subnet_id
   }
   size = var.instance_pool_size
 
