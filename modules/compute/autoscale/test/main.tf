@@ -27,8 +27,13 @@ resource "oci_core_instance_configuration" "test_instance_configuration" {
       # display_name = var.display_name
       # fault_domain = var.fault_domain # 指定しない場合はシステムが自動で設定する
       launch_mode = "NATIVE"
-      metadata    = var.metadata
-      shape       = var.shape
+      metadata = { "user_data" : base64encode(<<-EOF
+                #!/bin/bash
+                echo "Hello, World" > index.html
+                nohup busybox httpd -f -p 80 &
+                EOF
+      ) }
+      shape = var.shape
     }
 
   }
