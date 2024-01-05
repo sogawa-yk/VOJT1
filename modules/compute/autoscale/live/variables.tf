@@ -7,7 +7,7 @@ variable "subnet_id" {}
 variable "metadata" {}
 variable "shape" {
   type    = string
-  default = "VM.Standard2.1"
+  default = "VM.Standard.A1.Flex"
 }
 variable "instance_configuration_display_name" {}
 
