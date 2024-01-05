@@ -1,7 +1,7 @@
 module "autoscale" {
   source                              = "../live"
   compartment_id                      = var.compartment_ocid
-  instance_configuration_display_name = var.instance_configuration_display_name
+  instance_configuration_display_name = "instance_configuration_test"
   availability_domain                 = data.oci_identity_availability_domains.ads.availability_domains[0].name
   metadata = { user_data : base64encode(<<-EOF
                 #!/bin/bash
@@ -9,7 +9,7 @@ module "autoscale" {
                 nohup busybox httpd -f -p 80 &
                 EOF
   ) }
-  shape                                  = "VM.Standard2.1"
+  shape                                  = "VM.Standard.A1.Flex"
   subnet_id                              = module.sample_network.subnet_id
   instance_pool_display_name             = "test"
   instance_pool_display_name_formatter   = "testtest"
