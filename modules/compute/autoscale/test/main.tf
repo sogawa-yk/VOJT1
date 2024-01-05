@@ -9,11 +9,12 @@ module "autoscale" {
                 nohup busybox httpd -f -p 80 &
                 EOF
   ) }
-  shape                                = "VM.Standard2.1"
-  subnet_id                            = module.sample_network.subnet_id
-  instance_pool_display_name           = "test"
-  instance_pool_display_name_formatter = "testtest"
-  instance_pool_size                   = 2
+  shape                                  = "VM.Standard2.1"
+  subnet_id                              = module.sample_network.subnet_id
+  instance_pool_display_name             = "test"
+  instance_pool_display_name_formatter   = "testtest"
+  instance_pool_size                     = 2
+  autoscaling_configuration_display_name = "test_AS"
 }
 
 data "oci_identity_availability_domains" "ads" {

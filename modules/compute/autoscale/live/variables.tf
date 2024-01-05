@@ -16,3 +16,5 @@ variable "instance_pool_display_name" {}
 variable "instance_pool_display_name_formatter" {}
 variable "instance_pool_size" {}
 
+### AUTOSCALING CONFIGURATION ###########################
+variable "autoscaling_configuration_display_name" {}

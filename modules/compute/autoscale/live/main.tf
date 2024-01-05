@@ -60,3 +60,58 @@ resource "oci_core_instance_pool" "test_instance_pool" {
   #   vnic_selection   = var.instance_pool_load_balancers_vnic_selection
   # }
 }
+
+
+resource "oci_autoscaling_auto_scaling_configuration" "test_auto_scaling_configuration" {
+  #### DOCUMENT #####
+  #https://docs.oracle.com/en-us/iaas/tools/oci-ansible-collection/4.39.0/collections/oracle/oci/oci_autoscaling_auto_scaling_configuration_module.html
+  ###################
+  #Required
+  auto_scaling_resources {
+    #Required
+    id   = oci_core_instance_pool.test_instance_pool.id
+    type = "instancePool"
+  }
+  compartment_id = var.compartment_id
+  policies {
+    #Required
+    policy_type = "threshold"
+
+    #Optional
+    capacity {
+
+      #Optional
+      initial = 1
+      max     = 3
+      min     = 1
+    }
+    display_name = "test_autoscaling_policy"
+    is_enabled   = true
+    rules {
+
+      #Optional
+      action {
+
+        #Optional
+        type  = "CHANGE_COUNT_BY"
+        value = 1
+      }
+      display_name = "test_autoscaling_policy_rule"
+      metric {
+
+        #Optional
+        metric_type = "CPU_UTILIZATION"
+        threshold {
+
+          #Optional
+          operator = "GT"
+          value    = 50
+        }
+      }
+    }
+  }
+
+  #Optional
+  display_name = var.autoscaling_configuration_display_name
+  is_enabled   = true
+}
