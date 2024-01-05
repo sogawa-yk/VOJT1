@@ -88,6 +88,7 @@ resource "oci_autoscaling_auto_scaling_configuration" "test_auto_scaling_configu
     display_name = "test_autoscaling_policy"
     is_enabled   = true
     rules {
+      # スケールアウトのルール
 
       #Optional
       action {
@@ -106,6 +107,29 @@ resource "oci_autoscaling_auto_scaling_configuration" "test_auto_scaling_configu
           #Optional
           operator = "GT"
           value    = 50
+        }
+      }
+    }
+    rules {
+      # スケールインのルール
+
+      #Optional
+      action {
+
+        #Optional
+        type  = "CHANGE_COUNT_BY"
+        value = 1
+      }
+      display_name = "test_autoscaling_policy_rule"
+      metric {
+
+        #Optional
+        metric_type = "CPU_UTILIZATION"
+        threshold {
+
+          #Optional
+          operator = "LT"
+          value    = 20
         }
       }
     }
