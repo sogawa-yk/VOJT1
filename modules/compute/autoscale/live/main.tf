@@ -118,7 +118,7 @@ resource "oci_autoscaling_auto_scaling_configuration" "test_auto_scaling_configu
 
         #Optional
         type  = "CHANGE_COUNT_BY"
-        value = 1
+        value = -1
       }
       display_name = "test_autoscaling_policy_rule"
       metric {
