@@ -30,6 +30,13 @@ resource "oci_core_instance_configuration" "test_instance_configuration" {
       launch_mode = "NATIVE"
       metadata    = var.metadata
       shape       = var.shape
+      shape_config {
+
+        #Optional
+        baseline_ocpu_utilization = "BASELINE_1_1"
+        memory_in_gbs             = 16
+        ocpus                     = 2
+      }
     }
 
   }
