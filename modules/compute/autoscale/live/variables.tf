@@ -5,10 +5,7 @@ variable "subnet_id" {}
 
 ### INSTANCE_CONFIGURATION ##############################
 variable "metadata" {}
-variable "shape" {
-  type    = string
-  default = "VM.Standard.A1.Flex"
-}
+variable "shape" {}
 variable "instance_configuration_display_name" {}
 
 ### INSTANCE_POOL #######################################
