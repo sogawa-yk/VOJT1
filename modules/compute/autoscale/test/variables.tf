@@ -5,5 +5,5 @@ variable "instance_configuration_display_name" {
 }
 variable "shape" {
   type    = string
-  default = "VM.Standard2.1"
+  default = "VM.Standard.A1.Flex"
 }
