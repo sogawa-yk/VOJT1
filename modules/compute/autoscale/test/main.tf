@@ -3,6 +3,7 @@ module "autoscale" {
   compartment_id                      = var.compartment_ocid
   instance_configuration_display_name = "instance_configuration_test"
   availability_domain                 = data.oci_identity_availability_domains.ads.availability_domains[0].name
+  image_id                            = "ocid1.image.oc1.ca-toronto-1.aaaaaaaasxeukiy4xr43xmxm2iymurikjbow7jeiil66eu66mxbqhy3rgp5a"
   metadata = { user_data : base64encode(<<-EOF
                 #!/bin/bash
                 echo "Hello, World" > index.html

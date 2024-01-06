@@ -7,6 +7,7 @@ variable "subnet_id" {}
 variable "metadata" {}
 variable "shape" {}
 variable "instance_configuration_display_name" {}
+variable "image_id" {}
 
 ### INSTANCE_POOL #######################################
 variable "instance_pool_display_name" {}

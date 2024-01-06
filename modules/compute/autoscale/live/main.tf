@@ -14,7 +14,7 @@ resource "oci_core_instance_configuration" "test_instance_configuration" {
       source_details {
         # 以下はイメージを使用してインスタンスを起動する例
         source_type = "image"
-        image_id    = "ocid1.image.oc1.ca-toronto-1.aaaaaaaaxia4m356sdwk4a7elcezas6wyqv7h575bbezmx2wxn54hndttxja"
+        image_id    = var.image_id
       }
       #Optional
       availability_domain = var.availability_domain
