@@ -9,7 +9,7 @@ resource "oci_core_subnet" "public_subnet" {
   # Caution: For the route table id, use module.vcn.nat_route_id.
   # Do not use module.vcn.nat_gateway_id, because it is the OCID for the gateway and not the route table.
   route_table_id    = oci_core_route_table.route_table.id
-  security_list_ids = [oci_core_security_list.security-list.id]
+  security_list_ids = [oci_core_security_list.public_security_list.id]
   display_name      = var.public_subnet_display_name
 }
 
@@ -24,6 +24,6 @@ resource "oci_core_subnet" "private_subnet" {
   # Caution: For the route table id, use module.vcn.nat_route_id.
   # Do not use module.vcn.nat_gateway_id, because it is the OCID for the gateway and not the route table.
   route_table_id    = oci_core_route_table.route_table.id
-  security_list_ids = [oci_core_security_list.security-list.id]
+  security_list_ids = [oci_core_security_list.private_security_list.id]
   display_name      = var.private_subnet_display_name
 }
