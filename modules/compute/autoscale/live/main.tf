@@ -10,6 +10,7 @@ resource "oci_core_instance_configuration" "test_instance_configuration" {
 
     #Optional
     launch_details {
+      compartment_id = var.compartment_id
       source_details {
         # 以下はイメージを使用してインスタンスを起動する例
         source_type = "image"
