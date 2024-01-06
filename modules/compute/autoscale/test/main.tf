@@ -23,7 +23,7 @@ module "autoscale" {
     )
   }
   shape                                  = "VM.Standard2.1"
-  subnet_id                              = module.sample_network.private_subnet_id
+  subnet_id                              = module.sample_network.public_subnet_id
   instance_pool_display_name             = "test"
   instance_pool_display_name_formatter   = "testtest"
   autoscaling_configuration_display_name = "test_AS"
