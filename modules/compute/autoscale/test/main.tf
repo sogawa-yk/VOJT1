@@ -5,11 +5,23 @@ module "autoscale" {
   availability_domain                 = data.oci_identity_availability_domains.ads.availability_domains[0].name
   image_id                            = "ocid1.image.oc1.ca-toronto-1.aaaaaaaasxeukiy4xr43xmxm2iymurikjbow7jeiil66eu66mxbqhy3rgp5a"
   metadata = { user_data : base64encode(<<-EOF
-                #!/bin/bash
-                echo "Hello, World" > index.html
-                nohup busybox httpd -f -p 80 &
-                EOF
-  ) }
+                              #cloud-config
+                              package_update: true
+                              package_upgrade: true
+                              packages:
+                                - nginx
+
+                              runcmd:
+                                - systemctl start nginx
+                                - systemctl enable nginx
+
+                              write_files:
+                                - path: /var/www/html/index.html
+                                  content: |
+                                    Hello from Cloud-init on OCI!
+                              EOF
+    )
+  }
   shape                                  = "VM.Standard2.1"
   subnet_id                              = module.sample_network.private_subnet_id
   instance_pool_display_name             = "test"
