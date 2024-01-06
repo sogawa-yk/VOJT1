@@ -10,7 +10,7 @@ module "autoscale" {
                 nohup busybox httpd -f -p 80 &
                 EOF
   ) }
-  shape                                  = "VM.Standard.A1.Flex"
+  shape                                  = "VM.Standard2.1"
   subnet_id                              = module.sample_network.subnet_id
   instance_pool_display_name             = "test"
   instance_pool_display_name_formatter   = "testtest"
