@@ -21,6 +21,7 @@ module "autoscale" {
                                     Hello from Cloud-init on OCI!
                               EOF
     )
+    ssh_authorized_keys = base64decode(data.oci_secrets_secretbundle.ssh_public_key.secret_bundle_content.0.content)
   }
   shape                                  = "VM.Standard2.1"
   subnet_id                              = module.sample_network.public_subnet_id
@@ -34,6 +35,10 @@ data "oci_identity_availability_domains" "ads" {
 }
 
 data "oci_core_services" "services" {
+}
+
+data "oci_secrets_secretbundle" "ssh_public_key" {
+  secret_id = var.secret_id
 }
 
 module "sample_network" {
