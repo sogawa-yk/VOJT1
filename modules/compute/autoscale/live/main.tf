@@ -19,7 +19,7 @@ resource "oci_core_instance_configuration" "test_instance_configuration" {
       create_vnic_details {
 
         #Optional
-        assign_public_ip = true
+        assign_public_ip = false
         subnet_id        = var.subnet_id
       }
       # fault_domain = var.fault_domain # 指定しない場合はシステムが自動で設定する
