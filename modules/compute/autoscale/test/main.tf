@@ -13,7 +13,7 @@ module "autoscale" {
                                 - iptables-persistent
 
                               runcmd:
-                                - iptables -A INPUT -p tcp --dport 80 -j ACCEPT
+                                - iptables -I INPUT 5 -p tcp --dport 80 -j ACCEPT
                                 - netfilter-persistent save
                                 - systemctl start nginx
                                 - systemctl enable nginx
