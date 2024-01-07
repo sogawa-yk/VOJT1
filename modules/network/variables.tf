@@ -9,6 +9,7 @@ variable "internet_gateway_display_name" {}
 variable "route_table_display_name" {}
 variable "service_gateway_display_name" {}
 variable "service_id" {}
+variable "nat_gateway_display_name" {}
 
 ### SECURITY LIST #######################################
 variable "public_security_list_display_name" {}

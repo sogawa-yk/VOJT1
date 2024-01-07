@@ -56,4 +56,5 @@ module "sample_network" {
   route_table_display_name           = "sample_route_table"
   service_gateway_display_name       = "sample_SG"
   service_id                         = data.oci_core_services.services.services.0.id
+  nat_gateway_display_name           = "sample_nat"
 }
