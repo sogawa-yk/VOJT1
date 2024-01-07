@@ -15,10 +15,6 @@ module "autoscale" {
                                 - systemctl start nginx
                                 - systemctl enable nginx
 
-                              write_files:
-                                - path: /var/www/html/index.html
-                                  content: |
-                                    Hello from Cloud-init on OCI!
                               EOF
     )
     ssh_authorized_keys = base64decode(data.oci_secrets_secretbundle.ssh_public_key.secret_bundle_content.0.content)
