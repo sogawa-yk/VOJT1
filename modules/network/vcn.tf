@@ -35,8 +35,7 @@ resource "oci_core_nat_gateway" "nat_gateway" {
   vcn_id         = oci_core_vcn.vcn.id
 
   #Optional
-  display_name   = var.nat_gateway_display_name
-  route_table_id = oci_core_route_table.private_route_table.id
+  display_name = var.nat_gateway_display_name
 }
 
 
