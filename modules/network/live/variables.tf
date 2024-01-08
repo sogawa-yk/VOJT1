@@ -21,3 +21,7 @@ variable "private_subnet_cidr_block" {}
 variable "public_subnet_display_name" {}
 variable "private_subnet_display_name" {}
 
+### LOAD BALANCER #######################################
+variable "load_balancer_display_name" {}
+variable "backend_set_name" {}
+variable "listener_name" {}

@@ -17,3 +17,11 @@ output "public_subnet_id" {
 output "private_subnet_id" {
   value = oci_core_subnet.private_subnet.id
 }
+
+output "load_balancer_id" {
+  value = oci_load_balancer_load_balancer.load_balancer.id
+}
+
+output "load_balancer_backend_set_id" {
+  value = oci_load_balancer_backend_set.backend_set.id
+}
