@@ -32,8 +32,8 @@ resource "oci_load_balancer_backend_set" "backend_set" {
 
 resource "oci_load_balancer_listener" "listener" {
   #Required
-  default_backend_set_name = oci_load_balancer_backend_set.test_backend_set.name
-  load_balancer_id         = oci_load_balancer_load_balancer.test_load_balancer.id
+  default_backend_set_name = oci_load_balancer_backend_set.backend_set.name
+  load_balancer_id         = oci_load_balancer_load_balancer.load_balancer.id
   name                     = var.listener_name
   port                     = 80
   protocol                 = "HTTP"
