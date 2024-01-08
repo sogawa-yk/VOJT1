@@ -2,7 +2,7 @@ resource "oci_load_balancer_load_balancer" "load_balancer" {
   #Required
   compartment_id = var.compartment_ocid
   display_name   = var.load_balancer_display_name
-  shape          = "Flexible"
+  shape          = "flexible"
   subnet_ids     = [oci_core_subnet.public_subnet.id]
 
   #Optional
