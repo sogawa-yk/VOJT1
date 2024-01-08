@@ -3,7 +3,7 @@ resource "oci_load_balancer_load_balancer" "load_balancer" {
   compartment_id = var.compartment_ocid
   display_name   = var.load_balancer_display_name
   shape          = "Flexible"
-  subnet_ids     = oci_core_subnet.public_subnet.id
+  subnet_ids     = [oci_core_subnet.public_subnet.id]
 
   #Optional
   ip_mode    = "IPV4"
