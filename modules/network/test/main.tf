@@ -20,3 +20,5 @@ module "sample_network" {
   listener_name                      = "sample_listener"
 }
 
+data "oci_core_services" "services" {
+}
