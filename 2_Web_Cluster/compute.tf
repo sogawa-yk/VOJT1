@@ -27,6 +27,7 @@ module "autoscale" {
   instance_pool_display_name             = "test"
   instance_pool_display_name_formatter   = "testtest"
   autoscaling_configuration_display_name = "test_AS"
+  load_balancer_enabled = true
   load_balancer_id = module.sample_network.load_balancer_id
   backend_set_name = module.sample_network.load_balancer_backend_set_name
 }

@@ -15,6 +15,7 @@ module "sample_network" {
   service_gateway_display_name       = "sample_SG"
   service_id                         = data.oci_core_services.services.services.0.id
   nat_gateway_display_name           = "sample_nat"
+  load_balancer_enabled = true
   load_balancer_display_name         = "sample_LB"
   backend_set_name                   = "sample_backend"
   listener_name                      = "sample_listener"
