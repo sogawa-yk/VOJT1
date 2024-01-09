@@ -21,6 +21,7 @@ resource "oci_load_balancer_backend_set" "backend_set" {
   health_checker {
     #Required
     protocol = "HTTP"
+    url_path = "/"
 
     #Optional
     port = 80
