@@ -147,3 +147,4 @@ resource "oci_autoscaling_auto_scaling_configuration" "test_auto_scaling_configu
   display_name = var.autoscaling_configuration_display_name
   is_enabled   = true
 }
+
