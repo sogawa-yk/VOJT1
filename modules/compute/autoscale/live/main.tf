@@ -55,14 +55,19 @@ resource "oci_core_instance_pool" "test_instance_pool" {
   #Optional
   display_name                    = var.instance_pool_display_name
   instance_display_name_formatter = var.instance_pool_display_name_formatter
-  # load_balancers {
-  #   #Required
-  #   backend_set_name = oci_load_balancer_backend_set.test_backend_set.name
-  #   load_balancer_id = oci_load_balancer_load_balancer.test_load_balancer.id
-  #   port             = var.instance_pool_load_balancers_port
-  #   vnic_selection   = var.instance_pool_load_balancers_vnic_selection
-  # }
+
+  dynamic "load_balancers" {
+    for_each = var.load_balancer_enabled ? [1] : []
+    content {
+      #Required
+      backend_set_name = var.backend_set_name
+      load_balancer_id = var.load_balancer_id
+      port             = 80
+      vnic_selection   = "PrimaryVnic"
+    }
+  }
 }
+
 
 
 resource "oci_autoscaling_auto_scaling_configuration" "test_auto_scaling_configuration" {
@@ -142,3 +147,4 @@ resource "oci_autoscaling_auto_scaling_configuration" "test_auto_scaling_configu
   display_name = var.autoscaling_configuration_display_name
   is_enabled   = true
 }
+

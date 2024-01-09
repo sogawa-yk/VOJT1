@@ -12,6 +12,9 @@ variable "image_id" {}
 ### INSTANCE_POOL #######################################
 variable "instance_pool_display_name" {}
 variable "instance_pool_display_name_formatter" {}
+variable "backend_set_name" {}
+variable "load_balancer_id" {}
+variable "load_balancer_enabled" {}
 
 ### AUTOSCALING CONFIGURATION ###########################
 variable "autoscaling_configuration_display_name" {}

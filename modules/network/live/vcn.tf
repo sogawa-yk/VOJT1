@@ -4,7 +4,6 @@ resource "oci_core_vcn" "vcn" {
   cidr_block     = var.vcn_cidr_block
   display_name   = var.vcn_display_name
   dns_label      = var.vcn_dns_label
-  freeform_tags  = { "Department" = "Finance" }
 }
 
 resource "oci_core_internet_gateway" "internet_gateway" {

@@ -27,6 +27,9 @@ module "autoscale" {
   instance_pool_display_name             = "test"
   instance_pool_display_name_formatter   = "testtest"
   autoscaling_configuration_display_name = "test_AS"
+  load_balancer_enabled = false
+  load_balancer_id = ""
+  backend_set_name = ""
 }
 
 data "oci_identity_availability_domains" "ads" {
@@ -41,7 +44,7 @@ data "oci_secrets_secretbundle" "ssh_public_key" {
 }
 
 module "sample_network" {
-  source                             = "../../../network"
+  source                             = "../../../network/live"
   compartment_ocid                   = var.compartment_ocid
   vcn_cidr_block                     = "10.0.0.0/16"
   vcn_dns_label                      = "sample"
@@ -57,4 +60,8 @@ module "sample_network" {
   service_gateway_display_name       = "sample_SG"
   service_id                         = data.oci_core_services.services.services.0.id
   nat_gateway_display_name           = "sample_nat"
+  load_balancer_enabled = false
+  load_balancer_display_name         = ""
+  backend_set_name                   = ""
+  listener_name                      = ""
 }

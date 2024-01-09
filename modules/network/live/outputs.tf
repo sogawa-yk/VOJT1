@@ -19,9 +19,13 @@ output "private_subnet_id" {
 }
 
 output "load_balancer_id" {
-  value = oci_load_balancer_load_balancer.load_balancer.id
+  value = var.load_balancer_enabled ? oci_load_balancer_load_balancer.load_balancer[0].id : ""
 }
 
 output "load_balancer_backend_set_id" {
-  value = oci_load_balancer_backend_set.backend_set.id
+  value = var.load_balancer_enabled ? oci_load_balancer_backend_set.backend_set[0].id : ""
+}
+
+output "load_balancer_backend_set_name" {
+  value = var.load_balancer_enabled ? oci_load_balancer_backend_set.backend_set[0].name : ""
 }

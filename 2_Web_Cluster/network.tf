@@ -1,14 +1,22 @@
 module "sample_network" {
-  source                        = "../modules/network"
-  compartment_ocid              = var.compartment_ocid
-  security_list_display_name    = "sample_security_list" #var.security_list_display_name
-  subnet_cidr_block             = "10.0.0.0/16"          #var.subnet_cidr_block
-  subnet_display_name           = "sample_subnet"        #var.subent_display_name
-  vcn_cidr_block                = "10.0.0.0/16"          #var.vcn_cidr_block
-  vcn_dns_label                 = "sample"               #var.vcn_dns_label
-  vcn_display_name              = "sample_vcn"           #var.vcn_display_name
-  internet_gateway_display_name = "sample_igw"           #var.internet_gateway_display_name
-  route_table_display_name      = "sample_route_table"   #var.route_table_display_name
-  service_gateway_display_name  = var.service_gateway_display_name
-  service_id                    = data.oci_core_services.services.services.0.id
+  source                             = "../modules/network/live"
+  compartment_ocid                   = var.compartment_ocid
+  vcn_cidr_block                     = "10.0.0.0/16"
+  vcn_dns_label                      = "sample"
+  vcn_display_name                   = "sample_vcn"
+  public_security_list_display_name  = "pub_sample_security_list"
+  private_security_list_display_name = "priv_sample_security_list"
+  public_subnet_cidr_block           = "10.0.0.0/24"
+  private_subnet_cidr_block          = "10.0.1.0/24"
+  public_subnet_display_name         = "pub_sample_subnet"
+  private_subnet_display_name        = "priv_sample_subnet"
+  internet_gateway_display_name      = "sample_igw"
+  route_table_display_name           = "sample_route_table"
+  service_gateway_display_name       = "sample_SG"
+  service_id                         = data.oci_core_services.services.services.0.id
+  nat_gateway_display_name           = "sample_nat"
+  load_balancer_enabled = true
+  load_balancer_display_name         = "sample_LB"
+  backend_set_name                   = "sample_backend"
+  listener_name                      = "sample_listener"
 }
