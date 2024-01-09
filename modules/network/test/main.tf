@@ -1,5 +1,5 @@
 module "sample_network" {
-  source                             = "../live"
+  source                             = "../../../network/live"
   compartment_ocid                   = var.compartment_ocid
   vcn_cidr_block                     = "10.0.0.0/16"
   vcn_dns_label                      = "sample"
@@ -15,8 +15,9 @@ module "sample_network" {
   service_gateway_display_name       = "sample_SG"
   service_id                         = data.oci_core_services.services.services.0.id
   nat_gateway_display_name           = "sample_nat"
+  load_balancer_enabled = true
   load_balancer_display_name         = "sample_LB"
-  backend_set_name                   = "sample_backend"
+  backend_set_name                   = "sample_bs"
   listener_name                      = "sample_listener"
 }
 
