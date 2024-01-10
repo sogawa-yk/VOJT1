@@ -27,9 +27,9 @@ module "autoscale" {
   instance_pool_display_name             = "test"
   instance_pool_display_name_formatter   = "testtest"
   autoscaling_configuration_display_name = "test_AS"
-  load_balancer_enabled = false
-  load_balancer_id = ""
-  backend_set_name = ""
+  load_balancer_enabled                  = false
+  load_balancer_id                       = ""
+  backend_set_name                       = ""
 }
 
 data "oci_identity_availability_domains" "ads" {
@@ -60,7 +60,7 @@ module "sample_network" {
   service_gateway_display_name       = "sample_SG"
   service_id                         = data.oci_core_services.services.services.0.id
   nat_gateway_display_name           = "sample_nat"
-  load_balancer_enabled = false
+  load_balancer_enabled              = false
   load_balancer_display_name         = ""
   backend_set_name                   = ""
   listener_name                      = ""
