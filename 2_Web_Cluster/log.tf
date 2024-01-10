@@ -1,5 +1,5 @@
 module "logging" {
-  source                            = "../live"
+  source                            = "../modules/logging/live"
   compartment_id                    = var.compartment_ocid
   read_log_display_name             = "read_log_test"
   write_log_display_name            = "write_log_test"

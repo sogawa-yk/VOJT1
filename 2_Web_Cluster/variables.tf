@@ -46,3 +46,5 @@ variable "service_gateway_display_name" {
   default     = "SG1"
 }
 
+
+variable "bucket_namespace" {}
