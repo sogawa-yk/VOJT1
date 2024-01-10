@@ -5,7 +5,7 @@ resource "oci_logging_log" "Bucket_log" {
   #Required
   display_name = var.log_display_name
   log_group_id = oci_logging_log_group.ObjectStorage_log_group.id
-  log_type     = "service"
+  log_type     = "SERVICE"
   #Optional
   configuration {
     #Required
