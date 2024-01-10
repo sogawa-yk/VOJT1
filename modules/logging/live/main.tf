@@ -20,8 +20,8 @@ resource "oci_logging_log" "Bucket_log" {
     #Optional
     compartment_id = var.compartment_id
   }
-  # is_enabled         = var.log_is_enabled
-  # retention_duration = var.log_retention_duration
+  is_enabled         = true
+  retention_duration = 30
 }
 
 resource "oci_logging_log_group" "ObjectStorage_log_group" {
