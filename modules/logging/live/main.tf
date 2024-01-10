@@ -3,7 +3,7 @@
 
 resource "oci_logging_log" "read_bucket_log" {
   #Required
-  display_name = var.log_display_name
+  display_name = var.read_log_display_name
   log_group_id = oci_logging_log_group.ObjectStorage_log_group.id
   log_type     = "SERVICE"
   #Optional
@@ -26,7 +26,7 @@ resource "oci_logging_log" "read_bucket_log" {
 
 resource "oci_logging_log" "write_bucket_log" {
   #Required
-  display_name = var.log_display_name
+  display_name = var.write_log_display_name
   log_group_id = oci_logging_log_group.ObjectStorage_log_group.id
   log_type     = "SERVICE"
   #Optional
