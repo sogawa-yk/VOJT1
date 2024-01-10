@@ -1,3 +1,6 @@
+### パラメータは以下を参考
+### https://github.com/oracle-terraform-modules/terraform-oci-logging/tree/main
+
 resource "oci_logging_log" "Bucket_log" {
   #Required
   display_name = var.log_display_name
@@ -8,7 +11,7 @@ resource "oci_logging_log" "Bucket_log" {
     #Required
     source {
       #Required
-      category    = "write"
+      category    = "read"
       resource    = var.log_configuration_source_resource
       service     = "objectstorage"
       source_type = "OCISERVICE"
