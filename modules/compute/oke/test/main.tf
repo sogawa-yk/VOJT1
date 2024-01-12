@@ -26,3 +26,6 @@ module "sample_network" {
   backend_set_name                   = ""
   listener_name                      = ""
 }
+
+data "oci_core_services" "services" {
+}
