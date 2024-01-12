@@ -27,7 +27,7 @@ resource "oci_network_firewall_network_firewall_policy_service" "http_network_fi
     #Optional
     maximum_port = 80
   }
-  type = "TCP"
+  type = "TCP_SERVICE"
 }
 
 resource "oci_network_firewall_network_firewall_policy_service" "ssh_network_firewall_policy_service" {
@@ -41,7 +41,7 @@ resource "oci_network_firewall_network_firewall_policy_service" "ssh_network_fir
     #Optional
     maximum_port = 22
   }
-  type = "TCP"
+  type = "TCP_SERVICE"
 }
 
 resource "oci_network_firewall_network_firewall_policy_service_list" "test_network_firewall_policy_service_list" {
