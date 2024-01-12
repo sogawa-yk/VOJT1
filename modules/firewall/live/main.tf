@@ -46,7 +46,7 @@ resource "oci_network_firewall_network_firewall_policy_service" "ssh_network_fir
 
 resource "oci_network_firewall_network_firewall_policy_service_list" "test_network_firewall_policy_service_list" {
   #Required
-  name                       = var.network_firewall_policy_service_list_name
+  name                       = "test_network_firewall_policy_service_list"
   network_firewall_policy_id = oci_network_firewall_network_firewall_policy.test_network_firewall_policy.id
   services = [oci_network_firewall_network_firewall_policy_service.http_network_firewall_policy_service.name,
   oci_network_firewall_network_firewall_policy_service.ssh_network_firewall_policy_service.name]
