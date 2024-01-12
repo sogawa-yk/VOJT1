@@ -1,5 +1,5 @@
 output "vcn_id" {
-  value = oci_core_vcn.vcn
+  value = oci_core_vcn.vcn.id
 }
 
 output "public_route_table_id" {
