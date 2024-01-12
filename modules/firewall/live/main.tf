@@ -13,7 +13,7 @@ resource "oci_network_firewall_network_firewall_policy" "test_network_firewall_p
   compartment_id = var.compartment_id
 
   #Optional
-  display_name = var.network_firewall_policy_display_name
+  display_name = "test_network_firewall_policy"
 }
 
 resource "oci_network_firewall_network_firewall_policy_service" "http_network_firewall_policy_service" {
