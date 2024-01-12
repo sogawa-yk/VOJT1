@@ -26,3 +26,6 @@ module "sample_firewall" {
   compartment_id = var.compartment_ocid
   subnet_id      = module.sample_network.public_subnet_id
 }
+
+data "oci_core_services" "services" {
+}
