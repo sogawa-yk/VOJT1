@@ -1,4 +1,9 @@
 resource "oci_core_instance_configuration" "test_instance_configuration" {
+  ### REF ################################################
+  # https://github.com/oracle/terraform-provider-oci/issues/1968
+  ########################################################
+
+
   #Required
   compartment_id = var.compartment_id
 

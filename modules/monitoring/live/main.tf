@@ -11,8 +11,8 @@ resource "oci_monitoring_alarm" "test_alarm" {
 
   #Optional
   body                                          = var.alarm_body # アラームの内容（人間が読める説明）
-  defined_tags                                  = { "Operations.CostCenter" = "42" }
-  freeform_tags                                 = { "Department" = "Finance" }
+  #defined_tags                                  = { "Operations.CostCenter" = "42" }
+  #freeform_tags                                 = { "Department" = "Finance" }
   is_notifications_per_metric_dimension_enabled = var.alarm_is_notifications_per_metric_dimension_enabled # trueにすると、メトリックストリームごとにアラームを通知
   message_format                                = var.alarm_message_format
   metric_compartment_id_in_subtree              = var.alarm_metric_compartment_id_in_subtree # 監視範囲をすべてのコンパートメントとサブコンパートメントまでするか。アラームの場所がルートコンパートメントしか無理
@@ -28,4 +28,16 @@ resource "oci_monitoring_alarm" "test_alarm" {
     #Optional
     description = var.alarm_suppression_description # 説明
   }
+}
+
+
+resource "oci_ons_notification_topic" "test_notification_topic" {
+  #Required
+  compartment_id = var.compartment_id
+  name           = var.notification_topic_name
+
+  #Optional
+  #defined_tags  = { "Operations.CostCenter" = "42" }
+  description   = var.notification_topic_description
+  #freeform_tags = { "Department" = "Finance" }
 }
