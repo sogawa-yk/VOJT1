@@ -22,12 +22,17 @@ module "autoscale" {
     )
     ssh_authorized_keys = base64decode(data.oci_secrets_secretbundle.ssh_public_key.secret_bundle_content.0.content)
   }
-  shape                                  = "VM.Standard2.1"
-  subnet_id                              = module.sample_network.private_subnet_id
-  instance_pool_display_name             = "test"
-  instance_pool_display_name_formatter   = "testtest"
-  autoscaling_configuration_display_name = "test_AS"
-  load_balancer_enabled                  = true
-  load_balancer_id                       = module.sample_network.load_balancer_id
-  backend_set_name                       = module.sample_network.load_balancer_backend_set_name
+  shape                                                                                            = "VM.Standard2.1"
+  instance_configuration_instance_details_launch_details_agent_config_are_all_plugins_disabled     = false
+  instance_configuration_instance_details_launch_details_agent_config_is_management_disabled       = false
+  instance_configuration_instance_details_launch_details_agent_config_is_monitoring_disabled       = false
+  instance_configuration_instance_details_launch_details_agent_config_plugins_config_desired_state = "ENABLED"
+  instance_configuration_instance_details_launch_details_agent_config_plugins_config_name          = "Compute Instance Monitoring"
+  subnet_id                                                                                        = module.sample_network.private_subnet_id
+  instance_pool_display_name                                                                       = "test"
+  instance_pool_display_name_formatter                                                             = "testtest"
+  autoscaling_configuration_display_name                                                           = "test_AS"
+  load_balancer_enabled                                                                            = true
+  load_balancer_id                                                                                 = module.sample_network.load_balancer_id
+  backend_set_name                                                                                 = module.sample_network.load_balancer_backend_set_name
 }
