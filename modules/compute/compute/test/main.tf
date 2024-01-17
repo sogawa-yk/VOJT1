@@ -7,12 +7,19 @@ module "test_instance" {
   display_name        = var.display_name
   subnet_id           = module.sample_network.public_subnet_id
   oci_ad_name         = data.oci_identity_availability_domains.ads.availability_domains[0].name
-  ssh_authorized_keys = var.ssh_authorized_keys
+  ssh_authorized_keys = base64decode(data.oci_secrets_secretbundle.ssh_public_key.secret_bundle_content.0.content)
   server_port         = var.server_port
 }
 
 data "oci_identity_availability_domains" "ads" {
   compartment_id = var.compartment_ocid
+}
+
+data "oci_core_services" "services" {
+}
+
+data "oci_secrets_secretbundle" "ssh_public_key" {
+  secret_id = var.secret_id
 }
 
 module "sample_network" {
