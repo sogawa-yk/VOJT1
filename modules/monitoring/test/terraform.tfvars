@@ -5,6 +5,7 @@
 ######################################################
 alarm_display_name                                  = "test_alarm"
 alarm_is_enabled                                    = true
+alarm_namespace                                     = "oci_computeagent"
 alarm_query                                         = "CpuUtilization[10m].percentile(0.9) < 85"
 alarm_severity                                      = "WARNING"
 alarm_body                                          = "High CPU utilization reached"
@@ -20,6 +21,7 @@ alarm_suppression_time_suppress_until               = "2025-01-18T19:00:00.000Z"
 alarm_suppression_description                       = "suppression test"
 notification_topic_name                             = "test_topic"
 notification_topic_description                      = "this topic is for test"
+subscription_protocol                               = "EMAIL"
 
 ### COMPUTE ###########################################
 shape        = "VM.Standard2.1"

@@ -20,6 +20,8 @@ module "test_monitoring" {
   alarm_suppression_description                       = var.alarm_suppression_description
   notification_topic_name = var.notification_topic_name
   notification_topic_description                      = var.notification_topic_description
+  subscription_endpoint = var.subscription_endpoint
+  subscription_protocol = var.subscription_protocol
 }
 
 module "test_instance" {

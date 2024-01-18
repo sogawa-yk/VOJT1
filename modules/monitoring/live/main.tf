@@ -10,7 +10,7 @@ resource "oci_monitoring_alarm" "test_alarm" {
   severity              = var.alarm_severity # アラームの重要度を定義する（CRITICALなど）
 
   #Optional
-  body                                          = var.alarm_body # アラームの内容（人間が読める説明）
+  body = var.alarm_body # アラームの内容（人間が読める説明）
   #defined_tags                                  = { "Operations.CostCenter" = "42" }
   #freeform_tags                                 = { "Department" = "Finance" }
   is_notifications_per_metric_dimension_enabled = var.alarm_is_notifications_per_metric_dimension_enabled # trueにすると、メトリックストリームごとにアラームを通知
@@ -38,6 +38,18 @@ resource "oci_ons_notification_topic" "test_notification_topic" {
 
   #Optional
   #defined_tags  = { "Operations.CostCenter" = "42" }
-  description   = var.notification_topic_description
+  description = var.notification_topic_description
   #freeform_tags = { "Department" = "Finance" }
+}
+
+resource "oci_ons_subscription" "test_subscription" {
+  #Required
+  compartment_id = var.compartment_id
+  endpoint       = var.subscription_endpoint
+  protocol       = var.subscription_protocol
+  topic_id       = oci_ons_notification_topic.test_notification_topic.id
+
+  #Optional
+  # defined_tags = {"Operations.CostCenter"= "42"}
+  # freeform_tags = {"Department"= "Finance"}
 }

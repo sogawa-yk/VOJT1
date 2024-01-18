@@ -21,3 +21,6 @@ variable "alarm_suppression_description" {}
 
 variable "notification_topic_name" {}
 variable "notification_topic_description" {}
+
+variable "subscription_endpoint" {}
+variable "subscription_protocol" {}
