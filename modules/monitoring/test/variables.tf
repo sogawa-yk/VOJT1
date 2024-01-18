@@ -28,6 +28,7 @@ variable "subscription_protocol" {}
 variable "shape" {}
 variable "source_id" {}
 variable "source_type" {}
-variable "display_name" {}
+variable "display_name_1" {}
+variable "display_name_2" {}
 variable "server_port" {}
 variable "secret_id" {}

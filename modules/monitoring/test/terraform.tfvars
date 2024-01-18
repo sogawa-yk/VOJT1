@@ -24,8 +24,9 @@ notification_topic_description                      = "this topic is for test"
 subscription_protocol                               = "EMAIL"
 
 ### COMPUTE ###########################################
-shape        = "VM.Standard2.1"
-source_id    = "ocid1.image.oc1.ca-toronto-1.aaaaaaaasxeukiy4xr43xmxm2iymurikjbow7jeiil66eu66mxbqhy3rgp5a"
-source_type  = "image"
-display_name = "test_instance"
-server_port  = 80
+shape          = "VM.Standard2.1"
+source_id      = "ocid1.image.oc1.ca-toronto-1.aaaaaaaasxeukiy4xr43xmxm2iymurikjbow7jeiil66eu66mxbqhy3rgp5a"
+source_type    = "image"
+display_name_1 = "test_instance_1"
+display_name_2 = "test_instance_2"
+server_port    = 80
