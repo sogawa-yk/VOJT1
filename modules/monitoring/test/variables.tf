@@ -26,3 +26,4 @@ variable "source_id" {}
 variable "source_type" {}
 variable "display_name" {}
 variable "server_port" {}
+variable "secret_id" {}
