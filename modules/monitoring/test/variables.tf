@@ -18,6 +18,7 @@ variable "alarm_resource_group" {}
 variable "alarm_suppression_time_suppress_from" {}
 variable "alarm_suppression_time_suppress_until" {}
 variable "alarm_suppression_description" {}
+variable "notification_topic_name" {}
 variable "notification_topic_description" {}
 
 ### COMPUTE ###################################################

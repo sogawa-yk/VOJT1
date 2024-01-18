@@ -18,6 +18,7 @@ module "test_monitoring" {
   alarm_suppression_time_suppress_from                = var.alarm_suppression_time_suppress_from
   alarm_suppression_time_suppress_until               = var.alarm_suppression_time_suppress_until
   alarm_suppression_description                       = var.alarm_suppression_description
+  notification_topic_name = var.notification_topic_name
   notification_topic_description                      = var.notification_topic_description
 }
 
