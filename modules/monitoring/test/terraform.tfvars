@@ -18,7 +18,7 @@ alarm_resource_group                                = null
 alarm_suppression_time_suppress_from                = "2025-01-17T19:00:00.000Z"
 alarm_suppression_time_suppress_until               = "2025-01-18T19:00:00.000Z"
 alarm_suppression_description                       = "suppression test"
-notification_topic_name                             = "test topic"
+notification_topic_name                             = "test_topic"
 notification_topic_description                      = "this topic is for test"
 
 ### COMPUTE ###########################################
