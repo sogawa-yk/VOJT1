@@ -1,5 +1,5 @@
 module "test_instance1" {
-  source              = "../../compute/compute/live"
+  source              = "../modules/compute/compute/live"
   compartment_id      = var.compartment_ocid
   shape               = var.shape
   source_id           = var.source_id
@@ -12,7 +12,7 @@ module "test_instance1" {
 }
 
 module "test_instance2" {
-  source              = "../../compute/compute/live"
+  source              = "../modules/compute/compute/live"
   compartment_id      = var.compartment_ocid
   shape               = var.shape
   source_id           = var.source_id
