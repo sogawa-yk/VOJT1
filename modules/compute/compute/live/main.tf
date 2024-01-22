@@ -11,7 +11,7 @@ resource "oci_core_instance" "sample_instance" {
   # Optional
   display_name = var.display_name
   create_vnic_details {
-    assign_public_ip = true
+    assign_public_ip = var.assign_public_ip
     subnet_id        = var.subnet_id
   }
   shape_config {

@@ -4,6 +4,7 @@ source_id    = "ocid1.image.oc1.ca-toronto-1.aaaaaaaaycvto7h4asfkdmizer3nbc57row
 source_type  = "image"
 display_name = "test_instance"
 server_port  = 80
+assign_public_ip = false
 
 ### NETWORK ###########################################
 vcn_cidr_block                     = "10.0.0.0/16"

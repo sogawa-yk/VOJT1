@@ -31,6 +31,7 @@ module "test_instance" {
   oci_ad_name         = data.oci_identity_availability_domains.ads.availability_domains[0].name
   ssh_authorized_keys = null
   server_port         = var.server_port
+  assign_public_ip    = var.assign_public_ip
 }
 
 data "oci_identity_availability_domains" "ads" {
