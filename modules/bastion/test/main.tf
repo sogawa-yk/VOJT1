@@ -17,6 +17,7 @@ module "test_bastion" {
   test_target_resource_id                                            = module.test_instance.instance_id
   test_username                                                      = "opc"
   session_key_details_public_key_content                             = data.oci_secrets_secretbundle.ssh_public_key
+  subnet_id                                                          = module.sample_network.public_subnet_id
 }
 
 module "test_instance" {
@@ -26,7 +27,7 @@ module "test_instance" {
   source_id           = var.source_id
   source_type         = var.source_type
   display_name        = var.display_name
-  subnet_id           = module.sample_network.public_subnet_id
+  subnet_id           = module.sample_network.private_subnet_id
   oci_ad_name         = data.oci_identity_availability_domains.ads.availability_domains[0].name
   ssh_authorized_keys = null
   server_port         = var.server_port
