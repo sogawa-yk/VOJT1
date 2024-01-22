@@ -5,10 +5,10 @@ resource "oci_bastion_bastion" "test_bastion" {
   target_subnet_id = oci_core_subnet.test_subnet.id
 
   #Optional
-  client_cidr_block_allow_list  = var.bastion_client_cidr_block_allow_list
-  dns_proxy_status              = var.bastion_dns_proxy_status
-  max_session_ttl_in_seconds    = var.bastion_max_session_ttl_in_seconds
-  name                          = var.bastion_name
+  client_cidr_block_allow_list = var.bastion_client_cidr_block_allow_list
+  dns_proxy_status             = var.bastion_dns_proxy_status
+  max_session_ttl_in_seconds   = var.bastion_max_session_ttl_in_seconds
+  name                         = var.bastion_name
 }
 
 resource "oci_bastion_session" "test_session" {
@@ -24,8 +24,8 @@ resource "oci_bastion_session" "test_session" {
 
     #Optional
     target_resource_fqdn                       = var.session_target_resource_details_target_resource_fqdn
-    target_resource_id                         = oci_bastion_target_resource.test_target_resource.id
-    target_resource_operating_system_user_name = oci_identity_user.test_user.name
+    target_resource_id                         = var.test_target_resource.id
+    target_resource_operating_system_user_name = var.test_user.name
     target_resource_port                       = var.session_target_resource_details_target_resource_port
     target_resource_private_ip_address         = var.session_target_resource_details_target_resource_private_ip_address
   }
