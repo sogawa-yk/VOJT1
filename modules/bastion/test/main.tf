@@ -25,7 +25,7 @@ module "test_instance" {
   display_name        = var.display_name
   subnet_id           = module.sample_network.public_subnet_id
   oci_ad_name         = data.oci_identity_availability_domains.ads.availability_domains[0].name
-  ssh_authorized_keys = base64decode(data.oci_secrets_secretbundle.ssh_public_key.secret_bundle_content.0.content)
+  ssh_authorized_keys = null
   server_port         = var.server_port
 }
 
