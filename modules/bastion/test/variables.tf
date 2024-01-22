@@ -34,7 +34,6 @@ variable "private_subnet_display_name" {}
 variable "internet_gateway_display_name" {}
 variable "route_table_display_name" {}
 variable "service_gateway_display_name" {}
-variable "service_id" {}
 variable "nat_gateway_display_name" {}
 variable "load_balancer_enabled" {}
 variable "load_balancer_display_name" {}
