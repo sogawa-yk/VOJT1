@@ -1,5 +1,5 @@
 ### COMPUTE ###########################################
-shape        = "VM.Standard.E4.Flex"
+shape        = "VM.Standard2.1"
 source_id    = "ocid1.image.oc1.ca-toronto-1.aaaaaaaallnbtpebsuiq63t7yb7gv5ebakt3jgyl2jy5pvmmsq5nhk4kuprq"
 source_type  = "image"
 display_name = "test_instance"
