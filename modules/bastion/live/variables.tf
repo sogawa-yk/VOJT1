@@ -14,3 +14,4 @@ variable "session_key_type" {}
 variable "session_session_ttl_in_seconds" {}
 variable "test_target_resource_id" {}
 variable "test_username" {}
+variable "session_key_details_public_key_content" {}

@@ -16,6 +16,7 @@ module "test_bastion" {
   session_session_ttl_in_seconds                                     = var.session_session_ttl_in_seconds
   test_target_resource_id                                            = module.test_instance.instance_id
   test_username                                                      = "opc"
+  session_key_details_public_key_content                             = data.oci_secrets_secretbundle.ssh_public_key
 }
 
 module "test_instance" {
