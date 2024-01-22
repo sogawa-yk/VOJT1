@@ -46,11 +46,14 @@ resource "oci_core_instance_configuration" "test_instance_configuration" {
         are_all_plugins_disabled = var.instance_configuration_instance_details_launch_details_agent_config_are_all_plugins_disabled
         is_management_disabled   = var.instance_configuration_instance_details_launch_details_agent_config_is_management_disabled
         is_monitoring_disabled   = var.instance_configuration_instance_details_launch_details_agent_config_is_monitoring_disabled
-        plugins_config {
 
-          #Optional
-          desired_state = var.instance_configuration_instance_details_launch_details_agent_config_plugins_config_desired_state
-          name          = var.instance_configuration_instance_details_launch_details_agent_config_plugins_config_name
+        dynamic "plugins_config" {
+          for_each = var.instance_configuration_instance_details_launch_details_agent_config_plugins_configs
+
+          content {
+            name          = plugins_config.value.name
+            desired_state = plugins_config.value.desired_state
+          }
         }
       }
     }
