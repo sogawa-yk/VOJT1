@@ -41,7 +41,7 @@ data "oci_secrets_secretbundle" "ssh_public_key" {
 }
 
 module "sample_network" {
-  source                             = "../../../network/live"
+  source                             = "../../network/live"
   compartment_ocid                   = var.compartment_ocid
   vcn_cidr_block                     = var.vcn_cidr_block
   vcn_dns_label                      = var.vcn_dns_label
