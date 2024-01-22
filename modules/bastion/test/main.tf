@@ -16,7 +16,7 @@ module "test_bastion" {
   session_session_ttl_in_seconds                                     = var.session_session_ttl_in_seconds
   test_target_resource_id                                            = module.test_instance.instance_id
   test_username                                                      = "opc"
-  session_key_details_public_key_content                             = data.oci_secrets_secretbundle.ssh_public_key.secret_bundle_content.0.content
+  session_key_details_public_key_content                             = var.session_key_details_public_key_content
   subnet_id                                                          = module.sample_network.public_subnet_id
 }
 
@@ -41,9 +41,6 @@ data "oci_identity_availability_domains" "ads" {
 data "oci_core_services" "services" {
 }
 
-data "oci_secrets_secretbundle" "ssh_public_key" {
-  secret_id = var.secret_id
-}
 
 module "sample_network" {
   source                             = "../../network/live"
