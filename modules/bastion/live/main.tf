@@ -24,8 +24,8 @@ resource "oci_bastion_session" "test_session" {
 
     #Optional
     target_resource_fqdn                       = var.session_target_resource_details_target_resource_fqdn
-    target_resource_id                         = var.test_target_resource.id
-    target_resource_operating_system_user_name = var.test_user.name
+    target_resource_id                         = var.test_target_resource_id
+    target_resource_operating_system_user_name = var.test_username
     target_resource_port                       = var.session_target_resource_details_target_resource_port
     target_resource_private_ip_address         = var.session_target_resource_details_target_resource_private_ip_address
   }

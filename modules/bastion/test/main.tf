@@ -14,6 +14,8 @@ module "test_bastion" {
   session_display_name                                               = var.session_display_name
   session_key_type                                                   = var.session_key_type
   session_session_ttl_in_seconds                                     = var.session_session_ttl_in_seconds
+  test_target_resource_id                                            = module.test_instance.instance_id
+  test_username                                                      = "opc"
 }
 
 module "test_instance" {
