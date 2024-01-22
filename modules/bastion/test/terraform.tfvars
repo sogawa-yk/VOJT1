@@ -1,6 +1,6 @@
 ### COMPUTE ###########################################
-shape        = "VM.Standard.E3.Flex"
-source_id    = "ocid1.image.oc1.ca-toronto-1.aaaaaaaallnbtpebsuiq63t7yb7gv5ebakt3jgyl2jy5pvmmsq5nhk4kuprq"
+shape        = "VM.Standard.E4.Flex"
+source_id    = "ocid1.image.oc1.ca-toronto-1.aaaaaaaaycvto7h4asfkdmizer3nbc57rowmcbuqwvqwed3ojkml4bi4lega"
 source_type  = "image"
 display_name = "test_instance"
 server_port  = 80
