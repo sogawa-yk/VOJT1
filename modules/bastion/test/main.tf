@@ -45,7 +45,9 @@ resource "null_resource" "wait_for_bastion_plugin" {
       PLUGIN_STATUS=""
       while [ "$PLUGIN_STATUS" != "RUNNING" ]; do
         PLUGIN_STATUS=$(oci instance-agent plugin list --instanceagent-id $INSTANCE_ID --compartment-id ${var.compartment_ocid} | jq '.data[] | select(.name == "Bastion")["status"]')
+        oci instance-agent plugin list --instanceagent-id $INSTANCE_ID --compartment-id ${var.compartment_ocid} | jq '.data[] | select(.name == "Bastion")["status"]' >> /error.txt
         echo "Waiting for Bastion plugin to be in RUNNING state..."
+        cat /error.txt
         echo "PLUGIN_STATUS: $PLUGIN_STATUS"
         sleep 30
       done
