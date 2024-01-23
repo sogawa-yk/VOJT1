@@ -41,7 +41,7 @@ resource "null_resource" "wait_for_bastion_plugin" {
 
   provisioner "local-exec" {
     command = <<-EOT
-      INSTANCE_ID=${module.test_instance.id}
+      INSTANCE_ID=${module.test_instance.instance_id}
       PLUGIN_STATUS=""
       while [ "$PLUGIN_STATUS" != "RUNNING" ]; do
         PLUGIN_STATUS=$(oci compute instance-agent-plugin get --instance-id $INSTANCE_ID --plugin-name Bastion --query 'data.status' --raw-output)
