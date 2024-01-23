@@ -1,5 +1,5 @@
 module "test_bastion" {
-  depends_on                                                         = [module.test_instance]
+  depends_on                                                         = [null_resource.wait_for_bastion_plugin]
   source                                                             = "../live"
   bastion_bastion_type                                               = var.bastion_bastion_type
   compartment_id                                                     = var.compartment_ocid
@@ -34,6 +34,22 @@ module "test_instance" {
   server_port         = var.server_port
   assign_public_ip    = var.assign_public_ip
   plugins_configs     = var.plugins_configs
+}
+
+resource "null_resource" "wait_for_bastion_plugin" {
+  depends_on = [module.test_instance]
+
+  provisioner "local-exec" {
+    command = <<-EOT
+      INSTANCE_ID=${oci_core_instance.example.id}
+      PLUGIN_STATUS=""
+      while [ "$PLUGIN_STATUS" != "RUNNING" ]; do
+        PLUGIN_STATUS=$(oci compute instance-agent-plugin get --instance-id $INSTANCE_ID --plugin-name Bastion --query 'data.status' --raw-output)
+        echo "Waiting for Bastion plugin to be in RUNNING state..."
+        sleep 30
+      done
+    EOT
+  }
 }
 
 data "oci_identity_availability_domains" "ads" {
