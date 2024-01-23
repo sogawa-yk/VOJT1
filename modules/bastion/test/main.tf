@@ -43,13 +43,17 @@ resource "null_resource" "wait_for_bastion_plugin" {
     command = <<-EOT
       INSTANCE_ID=${module.test_instance.instance_id}
       PLUGIN_STATUS=""
-      while [ "$PLUGIN_STATUS" != "RUNNING" ]; do
+      while true; do
         PLUGIN_STATUS=$(oci instance-agent plugin list --instanceagent-id $INSTANCE_ID --compartment-id ${var.compartment_ocid} | jq '.data[] | select(.name == "Bastion")["status"]')
-        oci instance-agent plugin list --instanceagent-id $INSTANCE_ID --compartment-id ${var.compartment_ocid} | jq '.data[] | select(.name == "Bastion")["status"]' >> /error.txt
-        echo "Waiting for Bastion plugin to be in RUNNING state..."
-        cat /error.txt
         echo "PLUGIN_STATUS: $PLUGIN_STATUS"
-        sleep 30
+
+        if echo "$PLUGIN_STATUS" | grep -q "RUNNING"; then
+          echo "Bastion plugin is in RUNNING state."
+          break
+        else
+          echo "Waiting for Bastion plugin to be in RUNNING state..."
+          sleep 30
+        fi
       done
     EOT
   }
