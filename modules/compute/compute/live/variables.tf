@@ -9,3 +9,10 @@ variable "oci_ad_name" {}
 variable "ssh_authorized_keys" {}
 variable "server_port" {}
 variable "assign_public_ip" {}
+variable "plugins_configs" {
+  type = list(object({
+    name          = string
+    desired_state = string
+  }))
+  description = "name: plugin name, desired_state: ENABLED or DISABLED"
+}

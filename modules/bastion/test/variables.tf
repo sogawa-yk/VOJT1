@@ -22,6 +22,7 @@ variable "source_type" {}
 variable "display_name" {}
 variable "server_port" {}
 variable "assign_public_ip" {}
+variable "plugins_configs" {}
 
 ### NETWORK #######################################
 variable "vcn_cidr_block" {}

@@ -1,10 +1,19 @@
 ### COMPUTE ###########################################
-shape        = "VM.Standard.E4.Flex"
-source_id    = "ocid1.image.oc1.ca-toronto-1.aaaaaaaaycvto7h4asfkdmizer3nbc57rowmcbuqwvqwed3ojkml4bi4lega"
-source_type  = "image"
-display_name = "test_instance"
-server_port  = 80
+shape            = "VM.Standard.E4.Flex"
+source_id        = "ocid1.image.oc1.ca-toronto-1.aaaaaaaaycvto7h4asfkdmizer3nbc57rowmcbuqwvqwed3ojkml4bi4lega"
+source_type      = "image"
+display_name     = "test_instance"
+server_port      = 80
 assign_public_ip = false
+plugins_configs = [
+  {
+    desired_state = "ENABLED"
+    name          = "Compute Instance Monitoring"
+  },
+  {
+    desired_state = "ENABLED"
+    name          = "Bastion"
+}]
 
 ### NETWORK ###########################################
 vcn_cidr_block                     = "10.0.0.0/16"

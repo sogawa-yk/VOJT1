@@ -32,6 +32,7 @@ module "test_instance" {
   ssh_authorized_keys = null
   server_port         = var.server_port
   assign_public_ip    = var.assign_public_ip
+  plugins_configs = var.plugins_configs
 }
 
 data "oci_identity_availability_domains" "ads" {

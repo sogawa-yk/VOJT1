@@ -21,6 +21,16 @@ resource "oci_core_instance" "sample_instance" {
     memory_in_gbs             = 16
     ocpus                     = 2
   }
+  agent_config {
+    dynamic "plugins_config" {
+      for_each = var.plugins_configs
+
+      content {
+        name          = plugins_config.value.name
+        desired_state = plugins_config.value.desired_state
+      }
+    }
+  }
   metadata = {
     ssh_authorized_keys = var.ssh_authorized_keys
     user_data = base64encode(<<-EOF
