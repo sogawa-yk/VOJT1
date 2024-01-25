@@ -17,7 +17,7 @@ locals {
       body                                          = alarm.body
       is_notifications_per_metric_dimension_enabled = alarm.is_notifications_per_metric_dimension_enabled
       message_format                                = alarm.message_format
-      metric_compartment_id_in_subtree              = alarm.metric_compratment_id_in_subtree
+      metric_compartment_id_in_subtree              = alarm.metric_compartment_id_in_subtree
       pending_duration                              = alarm.pending_duration
       repeat_notification_duration                  = alarm.repeat_notification_duration
       resolution                                    = alarm.resolution
