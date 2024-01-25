@@ -21,7 +21,7 @@ locals {
       pending_duration                              = alarm.pending_duration
       repeat_notification_duration                  = alarm.repeat_notification_duration
       resolution                                    = alarm.resolution
-      resouce_group                                 = alarm.resource_group
+      resource_group                                = alarm.resource_group
       suppression                                   = alarm.suppression
     }
   }
