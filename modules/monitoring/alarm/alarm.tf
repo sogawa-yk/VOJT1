@@ -11,7 +11,7 @@ resource "oci_monitoring_alarm" "alarm" {
   severity              = each.value.severity
 
   #Optional
-  body = var.alarm_body
+  body = each.value.body
   #defined_tags                                  = { "Operations.CostCenter" = "42" }
   #freeform_tags                                 = { "Department" = "Finance" }
   is_notifications_per_metric_dimension_enabled = each.value.is_notifications_per_metric_dimension_enabled
