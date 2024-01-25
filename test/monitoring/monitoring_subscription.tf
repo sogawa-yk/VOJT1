@@ -9,11 +9,8 @@ locals {
     for key, sub in var.subscriptions : key => {
       protocol = sub.protocol
       endpoint = sub.endpoint
-      topic_id = local.topic_map["topic001"]
+      topic_id = module.oci_ons_notification_topic.notification_topic.topic_map["topic001"]
     }
   }
 }
 
-output "topic_ids" {
-  value = module.oci_ons_notification_topic.topic_map
-}
