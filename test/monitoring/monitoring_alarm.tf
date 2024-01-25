@@ -11,7 +11,7 @@ locals {
       metric_compartment_id                         = var.compartment_ocid
       display_name                                  = alarm.display_name
       is_enabled                                    = alarm.is_enabled
-      namespace                                     = alarm.is_namespace
+      namespace                                     = alarm.namespace
       query                                         = alarm.query
       severity                                      = alarm.severity
       body                                          = alarm.body
