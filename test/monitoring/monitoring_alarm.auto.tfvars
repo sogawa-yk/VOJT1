@@ -1,9 +1,9 @@
 monitoring_alarms = {
   "alarm001" = {
-    destinations                                  = module.oci_ons_notification_topic.notification_topic.topic_id
+    destinations                                  = null
     display_name                                  = "alarm001"
     is_enabled                                    = true
-    metric_compartment_id                         = var.compartment_ocid
+    metric_compartment_id                         = null
     namespace                                     = "oci_computeagent"
     query                                         = "CpuUtilization[10m].percentile(0.9) < 85"
     severity                                      = "WARNING"
