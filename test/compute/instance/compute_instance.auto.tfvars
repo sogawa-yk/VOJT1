@@ -38,6 +38,7 @@ instances = {
     }
     create_vnic_details = {
       assign_public_ip = true
+      subnet_id        = "ocid1.subnet.oc1.ca-toronto-1.aaaaaaaaymyetezk6ryonhngf7aevalhoymifmxzzygygxzrkxkm4cntxcxq"
     }
     shape_config = {
       baseline_ocpu_utilization = null
