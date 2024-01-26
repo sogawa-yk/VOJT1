@@ -39,23 +39,8 @@ resource "oci_core_instance" "instance" {
     }
   }
   metadata = {
-    ssh_authorized_keys = var.ssh_authorized_keys
-    user_data = base64encode(<<-EOF
-                            #cloud-config
-                            package_update: true
-                            package_upgrade: true
-                            packages:
-                                - nginx
-                                - iptables-persistent
-
-                            runcmd:
-                            - iptables -I INPUT 5 -p tcp --dport 80 -j ACCEPT
-                            - netfilter-persistent save
-                            - systemctl start nginx
-                            - systemctl enable nginx
-
-                            EOF
-    )
+    ssh_authorized_keys = each.value.ssh_authorized_keys
+    user_data = each.value.user_data
   }
   preserve_boot_volume = false
 }
