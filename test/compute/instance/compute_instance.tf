@@ -15,8 +15,8 @@ data "oci_secrets_secretbundle" "ssh_public_key" {
 locals {
   updated_instances = {
     for key, instance in var.instances : key => {
-      availability_domain = data.oci_identity_availability_domains.abs.availability_domains[0].name
-      fault_domain        = intance.fault_domain
+      availability_domain = data.oci_identity_availability_domains.ads.availability_domains[0].name
+      fault_domain        = instance.fault_domain
       display_name        = instance.display_name
       shape               = instance.shape
       source_details      = instance.source_details
