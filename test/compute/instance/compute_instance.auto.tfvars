@@ -25,10 +25,6 @@ instances = {
         name          = "Compute Instance Monitoring"
       }
     ]
-    metadata = {
-      user_data           = null
-      ssh_authorized_keys = null
-    }
   }
   instance02 = {
     fault_domain = null
