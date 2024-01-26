@@ -1,8 +1,9 @@
 instances = {
   instance01 = {
-    fault_domain = null
-    display_name = "instance01"
-    shape        = "VM.Standard.E4.Flex"
+    fault_domain        = null
+    availability_domain = null
+    display_name        = "instance01"
+    shape               = "VM.Standard.E4.Flex"
     source_details = {
       source_id = "ocid1.image.oc1.ca-toronto-1.aaaaaaaasxeukiy4xr43xmxm2iymurikjbow7jeiil66eu66mxbqhy3rgp5a"
     }
@@ -25,11 +26,13 @@ instances = {
         name          = "Compute Instance Monitoring"
       }
     ]
+    metadata = null
   }
   instance02 = {
-    fault_domain = null
-    display_name = "instance02"
-    shape        = "VM.Standard.E4.Flex"
+    fault_domain        = null
+    availability_domain = null
+    display_name        = "instance02"
+    shape               = "VM.Standard.E4.Flex"
     source_details = {
       source_id = "ocid1.image.oc1.ca-toronto-1.aaaaaaaasxeukiy4xr43xmxm2iymurikjbow7jeiil66eu66mxbqhy3rgp5a"
     }
@@ -51,5 +54,6 @@ instances = {
         name          = "Compute Instance Monitoring"
       }
     ]
+    metadata = null
   }
 }
