@@ -26,22 +26,7 @@ instances = {
       }
     ]
     metadata = {
-      user_data = base64encode(<<-EOF
-                            #cloud-config
-                            package_update: true
-                            package_upgrade: true
-                            packages:
-                                - nginx
-                                - iptables-persistent
-
-                            runcmd:
-                            - iptables -I INPUT 5 -p tcp --dport 80 -j ACCEPT
-                            - netfilter-persistent save
-                            - systemctl start nginx
-                            - systemctl enable nginx
-
-                            EOF
-      )
+      user_data = null
       ssh_authorized_keys = null
     }
   }

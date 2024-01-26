@@ -24,7 +24,22 @@ locals {
       shape_config        = instance.shape_config
       plugins_config      = instance.plugins_config
       metadata = {
-        user_data           = instance.metadata.user_data
+        user_data = base64encode(<<-EOF
+                            #cloud-config
+                            package_update: true
+                            package_upgrade: true
+                            packages:
+                                - nginx
+                                - iptables-persistent
+
+                            runcmd:
+                            - iptables -I INPUT 5 -p tcp --dport 80 -j ACCEPT
+                            - netfilter-persistent save
+                            - systemctl start nginx
+                            - systemctl enable nginx
+
+                            EOF
+        )
         ssh_authorized_keys = base64decode(data.oci_secrets_secretbundle.ssh_public_key.secret_bundle_content.0.content)
       }
     }
