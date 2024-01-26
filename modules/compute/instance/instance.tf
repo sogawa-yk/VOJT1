@@ -13,8 +13,8 @@ resource "oci_core_instance" "instance" {
   }
 
   create_vnic_details {
-    assign_public_ip = each.value.assign_public_ip
-    subnet_id        = each.value.subnet_id
+    assign_public_ip = each.value.create_vnic_details.assign_public_ip
+    subnet_id        = each.value.create_vnic_details.subnet_id
   }
 
   dynamic "shape_config" {
@@ -39,8 +39,8 @@ resource "oci_core_instance" "instance" {
     }
   }
   metadata = {
-    ssh_authorized_keys = each.value.ssh_authorized_keys
-    user_data = each.value.user_data
+    ssh_authorized_keys = each.value.metadata.ssh_authorized_keys
+    user_data           = each.value.metadata.user_data
   }
   preserve_boot_volume = false
 }
