@@ -27,3 +27,4 @@ variable "instances" {
     })
   }))
 }
+variable "secret_id" {}
