@@ -8,6 +8,10 @@ data "oci_identity_availability_domains" "ads" {
   compartment_id = var.compartment_ocid
 }
 
+data "oci_secrets_secretbundle" "ssh_public_key" {
+  secret_id = var.secret_id
+}
+
 locals {
   updated_instances = {
     for key, instance in var.instances : key => {
@@ -19,7 +23,10 @@ locals {
       create_vnic_details = instance.create_vnic_details
       shape_config        = instance.shape_config
       plugins_config      = instance.plugins_config
-      metadata            = instance.metadata
+      metadata = {
+        user_data           = instance.metadata.user_data
+        ssh_authorized_keys = base64decode(data.oci_secrets_secretbundle.ssh_public_key.secret_bundle_content.0.content)
+      }
     }
   }
 }

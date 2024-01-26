@@ -42,6 +42,7 @@ instances = {
 
                             EOF
       )
+      ssh_authorized_keys = null
     }
   }
   instance02 = {
