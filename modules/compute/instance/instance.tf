@@ -1,29 +1,36 @@
-resource "oci_core_instance" "sample_instance" {
-  # Required
-  availability_domain = var.oci_ad_name
+resource "oci_core_instance" "instance" {
+  for_each = var.instances
+
   compartment_id      = var.compartment_id
-  shape               = var.shape
+  availability_domain = each.value.availability_domain
+  fault_domain        = each.value.fault_domain
+  display_name        = each.value.display_name
+  shape               = each.value.shape
+
   source_details {
-    source_id   = var.source_id
+    source_id   = each.value.source_details.source_id
     source_type = "image"
   }
 
-  # Optional
-  display_name = var.display_name
   create_vnic_details {
-    assign_public_ip = var.assign_public_ip
-    subnet_id        = var.subnet_id
+    assign_public_ip = each.value.assign_public_ip
+    subnet_id        = each.value.subnet_id
   }
-  shape_config {
+
+  dynamic "shape_config" {
     #Flexシェイプの時に必要
-    #Optional
-    baseline_ocpu_utilization = "BASELINE_1_1"
-    memory_in_gbs             = 16
-    ocpus                     = 2
+    for_each = length(regexall("^.*Flex", each.value.shape)) > 0 ? [1] : []
+    content {
+      baseline_ocpu_utilization = each.value.shape_config.baseline_ocpu_utilization
+      memory_in_gbs             = each.value.shape_config.memory_in_gbs
+      ocpus                     = each.value.shape_config.ocpus
+    }
+
   }
+
   agent_config {
     dynamic "plugins_config" {
-      for_each = var.plugins_configs
+      for_each = each.value.plugins_config
 
       content {
         name          = plugins_config.value.name
